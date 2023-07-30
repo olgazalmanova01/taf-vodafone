@@ -8,25 +8,25 @@ public class LoginTest extends BaseTest {
     @Test
     public void testLoginWithInvalidData() {
         loginStep.fillFormAndSubmitWithInvalidData(util.generateEmail(), util.generatePassword());
-        Assertions.assertEquals(loginPage.getErrorMessage());
+        Assertions.assertEquals(loginPage.expectedErrorMessage, loginPage.getErrorMessage());
     }
 
     @Test
     public void testLoginWithEmailAndEmptyPassword() {
         loginStep.fillFormAndSubmitWithInvalidData(util.generateEmail(), "");
-        Assertions.assertEquals(loginPage.getErrorMessage());
+        Assertions.assertEquals(loginPage.expectedErrorMessage, loginPage.getErrorMessage());
     }
 
     @Test
     public void testLoginWithPasswordAndEmptyEmail() {
         loginStep.fillFormAndSubmitWithInvalidData("", util.generatePassword());
-        Assertions.assertEquals(loginPage.getErrorMessage());
+        Assertions.assertEquals(loginPage.expectedErrorMessage, loginPage.getErrorMessage());
     }
 
     @Test
     public void testLoginWithEmptyData() {
         loginStep.fillFormAndSubmitWithInvalidData("", "");
-        Assertions.assertEquals(loginPage.getErrorMessage());
+        Assertions.assertEquals(loginPage.expectedErrorMessage, loginPage.getErrorMessage());
 
     }
 }

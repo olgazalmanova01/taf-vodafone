@@ -1,4 +1,4 @@
-package by.itacademy.zalmanova.olga.util;
+package by.itacademy.zalmanova.olga.ui.util;
 
 import com.github.javafaker.Faker;
 
