@@ -12,14 +12,15 @@ public class ApiTest {
     public void testPOSTWithEmptyData() {
         post = new Post();
         given().header("Content-Type", "application/json").body(post.generateBody("", "")).
-                when().post(post.endpoint).then().assertThat().statusCode(400).body("title", equalTo("One or more validations errors occured"));
+                when().post(post.endpoint).then().assertThat().statusCode(400).body("title", equalTo("One or more validation errors occurred."));
     }
 
     @Test
     public void testPostWithIncorrectData() {
         post = new Post();
         given().header("Content-Type", "application/json").body(post.generateBody("user", "password")).
-                when().post(post.endpoint).then().assertThat().statusCode(401).assertThat().body("errorMessage", equalTo("User wrong password"));
+                when().post(post.endpoint).then().
+                assertThat().statusCode(401).assertThat().body("errorMessage", equalTo("User wrong password"));
     }
 }
 
